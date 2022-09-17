@@ -6,15 +6,20 @@
   height: 6rem;
   z-index: 100;
   transition: all 0.5s ease-in;
+  background: linear-gradient(
+    to bottom,
+    rgba(54, 54, 54, 0.15),
+    rgba(161, 159, 159, 0.03)
+  );
+}
+
+.navbar__black {
+  background-color: black;
 }
 
 .navbar__contens {
   display: flex;
   justify-content: space-between;
-}
-
-.navbar__black {
-  background-color: black;
 }
 
 .navbar__logo {
