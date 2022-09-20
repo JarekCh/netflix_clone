@@ -35,6 +35,8 @@
 .navbar__avatar {
   position: fixed;
   right: 2rem;
+  top: 1.5rem;
   width: 3rem;
+  border-radius: 0.5rem;
   cursor: pointer;
 }

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import Netflix from '../../assets/netflixLogoT.png';
 import netflixAvatar from '../../assets/netflixAvatar.png';
+import { IoMdArrowDropdown } from 'react-icons/io';
+import { BiBell } from 'react-icons/bi';
 
 const Navbar = () => {
   const [handleShow, setHandleShow] = useState(false);
@@ -28,6 +30,8 @@ const Navbar = () => {
   return (
     <div className={`navbar ${handleShow && 'navbar__black'}`}>
       <div className='navbar__contens'>
+        <IoMdArrowDropdown />
+        <BiBell />
         <img src={Netflix} alt='logo' className='navbar__logo' />
         <img
           src={netflixAvatar}

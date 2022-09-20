@@ -1,5 +1,7 @@
 import React from 'react';
 import './Banner.css';
+import { IoMdInformationCircleOutline } from 'react-icons/io';
+import { FaPlay } from 'react-icons/fa';
 
 const Banner = () => {
   const truncate = (string, n) => {
@@ -17,10 +19,6 @@ const Banner = () => {
     >
       <div className='banner__contens'>
         <h1 className='banner__title'>Movie Name</h1>
-        <div className='banner__btns'>
-          <button className='banner__btn'>Play</button>
-          <button className='banner__btn'>My List</button>
-        </div>
         <h1 className='banner__description'>
           {truncate(
             `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam
@@ -30,6 +28,16 @@ const Banner = () => {
             150
           )}
         </h1>
+        <div className='banner__btns'>
+          <button className='banner__btnPlay'>
+            <FaPlay className='banner__btnPlayIcon' />
+            Play
+          </button>
+          <button className='banner__btnInfo'>
+            <IoMdInformationCircleOutline className='banner__btnInfoIcon' />
+            More Info
+          </button>
+        </div>
       </div>
       <div className='banner--fadeBottom'></div>
     </header>
