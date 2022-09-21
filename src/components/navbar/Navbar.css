@@ -22,21 +22,66 @@
   justify-content: space-between;
 }
 
+.navbar__left {
+  display: flex;
+}
+
 .navbar__logo {
   position: fixed;
   top: 1.8rem;
   left: 0;
   width: 12rem;
   padding-left: 2rem;
+  margin-left: 2.7rem;
   cursor: pointer;
   background-color: transparent;
 }
 
+.navbar__right {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.navbar__right:nth-child(2) {
+  color: white;
+  font-size: medium;
+}
+
+.navbar__rightSearch {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+}
+.navbar__rightBell {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 2.5rem;
+}
 .navbar__avatar {
-  position: fixed;
-  right: 2rem;
-  top: 1.5rem;
   width: 3rem;
   border-radius: 0.5rem;
+}
+.navbar__profileLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
   cursor: pointer;
 }
+.navbar__profileLink > span {
+  color: white;
+  font-size: 1.4rem;
+}
+
+@media screen and (min-width: 600px) {
+  .navbar__logo {
+    width: 12rem;
+  }
+}
+
+/* TODO: 
+change kids font
+add left side navigation
+add rwd */

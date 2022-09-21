@@ -37,3 +37,7 @@ button {
   cursor: pointer;
   transition: all 0.2s;
 }
+
+.icons {
+  cursor: pointer;
+}

@@ -1,6 +1,6 @@
 .banner {
   position: relative;
-  height: 44.8rem;
+  height: 16rem;
   color: white;
   object-fit: contain;
 }
@@ -84,9 +84,12 @@
   font-size: 2.5rem;
 }
 
+@media screen and (min-width: 600px) {
+  .banner {
+    height: 44.8rem;
+  }
+}
+
 /* TODO 
-change buttons
-add responsivnes banner and navbar
-edit navbar
-add react icons
+add responsivnes banner 
 TODO */
