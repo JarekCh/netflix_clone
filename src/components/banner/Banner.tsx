@@ -1,11 +1,10 @@
-import React from 'react';
 import './Banner.css';
 import { IoMdInformationCircleOutline } from 'react-icons/io';
 import { FaPlay } from 'react-icons/fa';
 
 const Banner = () => {
-  const truncate = (string, n) => {
-    return string?.length > n ? string.substr(0, n - 1) + '...' : string;
+  const truncate = (string: string, n: number) => {
+    return string?.length > n ? string.substring(0, n - 1) + '...' : string;
   };
 
   return (

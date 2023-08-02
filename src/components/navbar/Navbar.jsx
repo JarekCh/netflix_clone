@@ -38,7 +38,7 @@ const Navbar = () => {
           <span className='navbar__rightSearch icons'>
             <FaSearch />
           </span>
-          <span>Kids</span>
+          <span className='navbar__rightText'>Kids</span>
           <span className='navbar__rightBell icons'>
             <BiBell />
           </span>
