@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './Navbar.css';
 import Netflix from '../../assets/netflixLogoT.png';
 import netflixAvatar from '../../assets/netflixAvatar.png';
@@ -7,11 +7,7 @@ import { BiBell } from 'react-icons/bi';
 import { FaSearch } from 'react-icons/fa';
 
 const Navbar = () => {
-  const [handleShow, setHandleShow] = useState(false);
-  console.log(
-    '🚀 ~ file: Navbar.jsx ~ line 8 ~ Navbar ~ handleShow',
-    handleShow
-  );
+  const [handleShow, setHandleShow] = useState<boolean>(false);
 
   const transitionNavbar = () => {
     if (window.scrollY > 100) {

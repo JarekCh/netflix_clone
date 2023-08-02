@@ -1,6 +1,5 @@
-import React from 'react';
-import Banner from '../../components/banner/Banner.tsx';
-import Navbar from '../../components/navbar/Navbar';
+import Banner from '../../components/banner/Banner.js';
+import Navbar from '../../components/navbar/Navbar.js';
 import './Home.css';
 
 const Home = () => {
