@@ -1,5 +1,5 @@
-import Banner from '../../components/banner/Banner.js';
-import Navbar from '../../components/navbar/Navbar.js';
+import Banner from '../../components/banner/Banner';
+import Navbar from '../../components/navbar/Navbar';
 import './Home.css';
 
 const Home = () => {
