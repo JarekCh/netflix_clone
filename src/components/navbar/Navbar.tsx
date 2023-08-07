@@ -5,9 +5,11 @@ import netflixAvatar from '../../assets/netflixAvatar.png';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { BiBell } from 'react-icons/bi';
 import { FaSearch } from 'react-icons/fa';
+import useMediaQuery from '../../utils/hooks/useMadiaQuery';
 
 const Navbar = () => {
   const [handleShow, setHandleShow] = useState<boolean>(false);
+  const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
 
   const transitionNavbar = () => {
     if (window.scrollY > 100) {
@@ -27,9 +29,16 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${handleShow && 'navbar__black'}`}>
       <div className='navbar__contens'>
+        {/* LEFT SIDE */}
         <div className='navbar__left'>
           <img src={Netflix} alt='logo' className='navbar__logo' />
         </div>
+        <div className='navbar_navigationMenu'>
+          <div></div>
+          <div></div>
+        </div>
+
+        {/* RIGHT SIDE */}
         <div className='navbar__right'>
           <span className='navbar__rightSearch icons'>
             <FaSearch />

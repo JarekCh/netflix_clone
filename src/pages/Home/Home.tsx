@@ -3,7 +3,7 @@ import Navbar from '../../components/navbar/Navbar';
 import './Home.css';
 
 const Home = () => {
-  const rows = () => {
+  const rows: any = () => {
     const row = [];
     for (let i = 0; i < 60; i++) {
       row.push(<h1 key={i}>test</h1>);
@@ -15,7 +15,7 @@ const Home = () => {
     <div className='home'>
       <Navbar />
       <Banner />
-      {/* rows */}
+      {rows}
     </div>
   );
 };
