@@ -10,6 +10,7 @@ import useMediaQuery from '../../utils/hooks/useMadiaQuery';
 const Navbar = () => {
   const [handleShow, setHandleShow] = useState<boolean>(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
+  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
 
   const transitionNavbar = () => {
     if (window.scrollY > 100) {
@@ -32,10 +33,22 @@ const Navbar = () => {
         {/* LEFT SIDE */}
         <div className='navbar__left'>
           <img src={Netflix} alt='logo' className='navbar__logo' />
-        </div>
-        <div className='navbar_navigationMenu'>
-          <div></div>
-          <div></div>
+
+          {isAboveMediumScreens ? (
+            <div className='navbar__medScreensMenu navbar__menu'>
+              <div>Home</div>
+              <div>Series</div>
+              <div>Films</div>
+              <div>New & Popular</div>
+              <div>My List</div>
+              <div>Browse by Languages</div>
+            </div>
+          ) : (
+            <div className='navbar__mobileManu navbar__menu' onClick={() => setIsMenuToggled(currVal => !currVal)}>
+              Browse
+            </div>
+          )}
+
         </div>
 
         {/* RIGHT SIDE */}
