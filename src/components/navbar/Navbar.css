@@ -44,14 +44,28 @@
 }
 
 .navbar__medScreensMenu {
-  display: flex;  
-  align-items: center;
+  display: flex;    
   gap: 2rem;  
 }
 
 .navbar__mobileManu{
-
+  position: relative;
 }
+
+.navbar__mobileManu > ul{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+  width: 5rem;
+}
+
+.navbar__mobileManu > ul > li {
+  list-style-type: none;
+  
+}
+
 
 .navbar__right {
   display: flex;

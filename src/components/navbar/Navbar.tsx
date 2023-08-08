@@ -44,9 +44,23 @@ const Navbar = () => {
               <div>Browse by Languages</div>
             </div>
           ) : (
-            <div className='navbar__mobileManu navbar__menu' onClick={() => setIsMenuToggled(currVal => !currVal)}>
-              Browse
+            <div className='navbar__menu'>
+              <div className='navbar__mobileManu' onClick={() => setIsMenuToggled(currVal => !currVal)}>
+                Browse
+                <span>▼</span>
+                {isMenuToggled &&
+                  <ul>
+                    <li>Home</li>
+                    <li>Series</li>
+                    <li>Films</li>
+                    <li>New & Popular</li>
+                    <li>My List</li>
+                    <li>Browse by Languages</li>
+                  </ul>
+                }
+              </div>
             </div>
+
           )}
 
         </div>
@@ -56,7 +70,8 @@ const Navbar = () => {
           <span className='navbar__rightSearch icons'>
             <FaSearch />
           </span>
-          <span className='navbar__rightText'>Kids</span>
+          {isAboveMediumScreens &&
+            <span className='navbar__rightText'>Kids</span>}
           <span className='navbar__rightBell icons'>
             <BiBell />
           </span>
