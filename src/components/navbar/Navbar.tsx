@@ -43,7 +43,7 @@ const Navbar = () => {
               <div>My List</div>
               <div>Browse by Languages</div>
             </div>
-          ) : (
+          ) : (!isAboveMediumScreens &&
             <div className='navbar__menu'>
               <div className='navbar__mobileManu' onClick={() => setIsMenuToggled(currVal => !currVal)}>
                 Browse
@@ -60,9 +60,7 @@ const Navbar = () => {
                 }
               </div>
             </div>
-
           )}
-
         </div>
 
         {/* RIGHT SIDE */}
