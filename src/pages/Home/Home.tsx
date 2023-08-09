@@ -15,7 +15,8 @@ const Home = () => {
     <div className='home'>
       <Navbar />
       <Banner />
-      {rows}
+      {/* {rows} */}
+
     </div>
   );
 };
