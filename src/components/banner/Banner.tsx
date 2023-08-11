@@ -1,8 +1,29 @@
 import './Banner.css';
 import { IoMdInformationCircleOutline } from 'react-icons/io';
 import { FaPlay } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import axios from '../../utils/axios';
+import requests from '../../features/api/Requests';
 
 const Banner = () => {
+  const [movie, setMovie] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(requests.fetchNetflixOriginals);
+      setMovie(
+        request.data.results[
+        Math.floor(Math.random() * request.data.results.length - 1)
+        ]
+      );
+      console.log(request.data.backdrop_path);
+      return request;
+    }
+
+    fetchData();
+  }, []);
+
+
   const truncate = (string: string, n: number) => {
     return string?.length > n ? string.substring(0, n - 1) + '...' : string;
   };
@@ -12,7 +33,7 @@ const Banner = () => {
       className='banner'
       style={{
         backgroundSize: 'cover',
-        backgroundImage: `url('https://i.ibb.co/WKRBzbH/Banner2.jpg')`,
+        backgroundImage: `url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
         backgroundPosition: 'center center',
       }}
     >
