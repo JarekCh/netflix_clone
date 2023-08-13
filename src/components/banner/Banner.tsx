@@ -4,9 +4,11 @@ import { FaPlay } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import axios from '../../utils/axios';
 import requests from '../../features/api/Requests';
+import { Movie, Genre } from '../../utils/shared/types';
 
 const Banner = () => {
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState<Movie | null>(null);
+  console.log("🚀 ~ file: Banner.tsx:11 ~ Banner ~ movie:", movie)
 
   useEffect(() => {
     async function fetchData() {
@@ -38,15 +40,11 @@ const Banner = () => {
       }}
     >
       <div className='banner__contens'>
-        <h1 className='banner__title'>Movie Name</h1>
+        <h1 className='banner__title'>
+          {movie?.title || movie?.name || movie?.original_name}
+        </h1>
         <h1 className='banner__description'>
-          {truncate(
-            `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam
-           voluptas deserunt tenetur aliquid vel molestiae velit at ipsa aperiam,
-           fugiat, veniam neque laudantiusm quia repellendus sint sequi harum
-           officia ea.`,
-            150
-          )}
+          {truncate(movie?.overview || '', 150)}
         </h1>
         <div className='banner__btns'>
           <button className='banner__btnPlay'>
