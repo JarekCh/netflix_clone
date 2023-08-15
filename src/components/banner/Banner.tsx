@@ -4,7 +4,7 @@ import { FaPlay } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import axios from '../../utils/axios';
 import requests from '../../features/api/Requests';
-import { Movie, Genre } from '../../utils/shared/types';
+import { Movie } from '../../utils/shared/types';
 
 const Banner = () => {
   const [movie, setMovie] = useState<Movie | null>(null);

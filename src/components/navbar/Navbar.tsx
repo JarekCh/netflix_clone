@@ -69,7 +69,7 @@ const Navbar = () => {
             <FaSearch />
           </span>
           {isAboveMediumScreens &&
-            <span className='navbar__rightText'>Kids</span>}
+            <span className='navbar__rightText'>Robert</span>}
           <span className='navbar__rightBell icons'>
             <BiBell />
           </span>
