@@ -4,12 +4,18 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 function App() {
+  const user = null;
+
   return (
     <div className='app'>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
+        {!user ? (
+          <Login />
+        ) : (
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        )}
       </BrowserRouter>
     </div>
   );
