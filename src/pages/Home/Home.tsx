@@ -6,42 +6,21 @@ import Row from '../../components/row/Row';
 
 const Home = () => {
   return (
-    <div className='home'>
+    <div className="home">
       <Navbar />
       <Banner />
       <Row
-        title='NETFLIX ORIGINALS'
+        title="NETFLIX ORIGINALS"
         fetchUrl={requests.fetchNetflixOriginals}
         isLargeRow
       />
-      <Row
-        title='Trading Now'
-        fetchUrl={requests.fetchTrending}
-      />
-      <Row
-        title='Top Rated'
-        fetchUrl={requests.fetchTopRated}
-      />
-      <Row
-        title='Action Movie'
-        fetchUrl={requests.fetchActionMovies}
-      />
-      <Row
-        title='Comedy Movie'
-        fetchUrl={requests.fetchComedyMovies}
-      />
-      <Row
-        title='Hrror Movie'
-        fetchUrl={requests.fetchHorrorMovies}
-      />
-      <Row
-        title='Romance Movie'
-        fetchUrl={requests.fetchRomanceMovies}
-      />
-      <Row
-        title='Documentaries'
-        fetchUrl={requests.fetchDocumentaries}
-      />
+      <Row title="Trading Now" fetchUrl={requests.fetchTrending} />
+      <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
+      <Row title="Action Movie" fetchUrl={requests.fetchActionMovies} />
+      <Row title="Comedy Movie" fetchUrl={requests.fetchComedyMovies} />
+      <Row title="Hrror Movie" fetchUrl={requests.fetchHorrorMovies} />
+      <Row title="Romance Movie" fetchUrl={requests.fetchRomanceMovies} />
+      <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
     </div>
   );
 };

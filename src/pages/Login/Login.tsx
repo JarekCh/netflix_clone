@@ -1,11 +1,13 @@
-import './Login.css'
+import './Login.css';
 
-type Props = {}
+type Props = {};
 
 const Login = (props: Props) => {
-    return (
-        <div className='Login'>Login</div>
-    )
-}
+  return (
+    <div className="Login">
+      <div className="login__background"></div>
+    </div>
+  );
+};
 
-export default Login
+export default Login;
