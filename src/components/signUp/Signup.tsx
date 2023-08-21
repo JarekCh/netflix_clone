@@ -1,13 +1,20 @@
+import { useRef } from 'react';
 import './SignUp.css';
+import { auth } from '../../firebase.js';
 
 type Props = {};
 
 const Signup = (props: Props) => {
-  const register = (e: Event) => {
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  const register = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+
+    auth;
   };
 
-  const signIn = (e: Event) => {
+  const signIn = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
   };
 
