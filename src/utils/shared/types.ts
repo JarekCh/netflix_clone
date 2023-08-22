@@ -1,11 +1,11 @@
 export enum SelectedPage {
-    Home = "home",
-    Series = "series",
-    Films = "films",
-    NewAndPopular = "new & popular",
-    MyList = 'my list',
-    BrowseByLanguages = 'browse by languages',
-  }
+  Home = 'home',
+  Series = 'series',
+  Films = 'films',
+  NewAndPopular = 'new & popular',
+  MyList = 'my list',
+  BrowseByLanguages = 'browse by languages',
+}
 
 export interface Movie {
   id: number;
@@ -18,7 +18,7 @@ export interface Movie {
   backdrop_path: string;
   vote_average: number;
   vote_count: number;
-  first_air_date:string;
+  first_air_date: string;
   genres: Genre[];
   origin_country: Country[];
   original_language: string;
@@ -34,3 +34,14 @@ export interface Country {
   id: number;
   name: string;
 }
+
+export const config = {
+  firebaseConfig: {
+    apiKey: '',
+    authDomain: '',
+    projectId: '',
+    storageBucket: '',
+    messagingSenderId: '',
+    appId: '',
+  },
+};
