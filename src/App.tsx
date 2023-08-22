@@ -12,7 +12,6 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
         //log in
-        console.log(userAuth);
       } else {
         //log off
       }
