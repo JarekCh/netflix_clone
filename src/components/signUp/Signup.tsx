@@ -21,7 +21,9 @@ const Signup = (props: Props) => {
       emailRef.current.value,
       passwordRef.current.value,
     )
-      .then((authUser) => {})
+      .then((authUser) => {
+        console.log(authUser);
+      })
       .catch((err) => alert(err.message));
   };
 
