@@ -6,10 +6,12 @@ import { IoMdArrowDropdown } from 'react-icons/io';
 import { BiBell } from 'react-icons/bi';
 import { FaSearch } from 'react-icons/fa';
 import useMediaQuery from '../../utils/hooks/useMadiaQuery';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [handleShow, setHandleShow] = useState<boolean>(false);
-  const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
+  const navigate = useNavigate();
+  const isAboveMediumScreens = useMediaQuery('(min-width: 1060px)');
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
 
   const transitionNavbar = () => {
@@ -29,13 +31,18 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${handleShow && 'navbar__black'}`}>
-      <div className='navbar__contens'>
+      <div className="navbar__contens">
         {/* LEFT SIDE */}
-        <div className='navbar__left'>
-          <img src={Netflix} alt='logo' className='navbar__logo' />
+        <div className="navbar__left">
+          <img
+            onClick={() => navigate('/')}
+            src={Netflix}
+            alt="logo"
+            className="navbar__logo"
+          />
 
           {isAboveMediumScreens ? (
-            <div className='navbar__medScreensMenu navbar__menu'>
+            <div className="navbar__medScreensMenu navbar__menu">
               <div>Home</div>
               <div>Series</div>
               <div>Films</div>
@@ -43,41 +50,48 @@ const Navbar = () => {
               <div>My List</div>
               <div>Browse by Languages</div>
             </div>
-          ) : (!isAboveMediumScreens &&
-            <div className='navbar__menu'>
-              <div className='navbar__mobileManu' onClick={() => setIsMenuToggled(currVal => !currVal)}>
-                Browse
-                <span>▼</span>
-                {isMenuToggled &&
-                  <ul>
-                    <li>Home</li>
-                    <li>Series</li>
-                    <li>Films</li>
-                    <li>New & Popular</li>
-                    <li>My List</li>
-                    <li>Browse by Languages</li>
-                  </ul>
-                }
+          ) : (
+            !isAboveMediumScreens && (
+              <div className="navbar__menu">
+                <div
+                  className="navbar__mobileManu"
+                  onClick={() => setIsMenuToggled((currVal) => !currVal)}
+                >
+                  Browse
+                  <span>▼</span>
+                  {isMenuToggled && (
+                    <ul>
+                      <li>Home</li>
+                      <li>Series</li>
+                      <li>Films</li>
+                      <li>New & Popular</li>
+                      <li>My List</li>
+                      <li>Browse by Languages</li>
+                    </ul>
+                  )}
+                </div>
               </div>
-            </div>
+            )
           )}
         </div>
 
         {/* RIGHT SIDE */}
-        <div className='navbar__right'>
-          <span className='navbar__rightSearch icons'>
+        <div className="navbar__right">
+          <span className="navbar__rightSearch icons">
             <FaSearch />
           </span>
-          {isAboveMediumScreens &&
-            <span className='navbar__rightText'>Robert</span>}
-          <span className='navbar__rightBell icons'>
+          {isAboveMediumScreens && (
+            <span className="navbar__rightText">Robert</span>
+          )}
+          <span className="navbar__rightBell icons">
             <BiBell />
           </span>
-          <div className='navbar__profileLink'>
+          <div className="navbar__profileLink">
             <img
+              onClick={() => navigate('/profile')}
               src={netflixAvatar}
-              alt='personal avatar'
-              className='navbar__avatar'
+              alt="personal avatar"
+              className="navbar__avatar"
             />
             <span>▼</span>
           </div>

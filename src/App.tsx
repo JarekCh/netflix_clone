@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
 import { useSelector } from 'react-redux';
 import Profile from './pages/Profile/Profile';
+import SharedLayout from './pages/SharedLayout';
 
 function App() {
   const user = useSelector(selectUser);
@@ -40,8 +41,10 @@ function App() {
           <Login />
         ) : (
           <Routes>
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<SharedLayout />}>
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/" element={<Home />} />
+            </Route>
           </Routes>
         )}
       </BrowserRouter>
