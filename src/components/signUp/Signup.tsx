@@ -13,10 +13,10 @@ const Signup = (props: Props) => {
   const emailRef = useRef<any>(null);
   const passwordRef = useRef<any>(null);
 
-  const register = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const register = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    createUserWithEmailAndPassword(
+    await createUserWithEmailAndPassword(
       auth,
       emailRef.current.value,
       passwordRef.current.value,
@@ -25,15 +25,17 @@ const Signup = (props: Props) => {
       .catch((err) => alert(err.message));
   };
 
-  const signIn = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const signIn = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    signInWithEmailAndPassword(
+    await signInWithEmailAndPassword(
       auth,
       emailRef.current.value,
       passwordRef.current.value,
     )
-      .then((authUser) => {})
+      .then((authUser) => {
+        console.log(authUser);
+      })
       .catch((err) => alert(err.message));
   };
 
