@@ -4,15 +4,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import { useEffect } from 'react';
 import { auth } from './firebase';
-import { useDispatch } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
-import { useSelector } from 'react-redux';
 import Profile from './pages/Profile/Profile';
 import SharedLayout from './pages/SharedLayout';
+import { useAppDispatch, useAppSelector } from './app/hooks';
 
 function App() {
-  const user = useSelector(selectUser);
-  const dispatch = useDispatch();
+  const user = useAppSelector(selectUser);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
@@ -26,12 +25,12 @@ function App() {
         );
       } else {
         //log off
-        dispatch(logout);
+        dispatch(logout());
       }
     });
 
     return unsubscribe;
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">

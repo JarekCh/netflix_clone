@@ -1,21 +1,34 @@
 import './Profile.css';
 import netflixAvatar from '../../assets/netflixAvatar.png';
-import { useSelector } from 'react-redux';
 import { selectUser } from '../../features/userSlice';
+import { useAppSelector } from '../../app/hooks';
+import { auth } from '../../firebase';
 
 type Props = {};
 
 const Profile = (props: Props) => {
-  const user = useSelector(selectUser);
-  console.log(user.email);
+  const user = useAppSelector(selectUser);
 
   return (
     <div className="profile">
-      <h1>Edit Profile</h1>
-      <div className="prfile__info">
-        <img src={netflixAvatar} alt="" />
-        <div className="profile__details">
-          <h2>{user.email}</h2>
+      <div className="profile__body">
+        <h1>Edit Profile</h1>
+        <div className="profile__info">
+          <img src={netflixAvatar} alt="" />
+          <div className="profile__details">
+            <h2>{user.email}</h2>
+            <div className="profile__plans">
+              <h3>Plans</h3>
+              <button
+                className="profile__signOut"
+                onClick={() => {
+                  auth.signOut();
+                }}
+              >
+                Sign Out
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
