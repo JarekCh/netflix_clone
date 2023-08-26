@@ -3,6 +3,7 @@ import netflixAvatar from '../../assets/netflixAvatar.png';
 import { selectUser } from '../../features/userSlice';
 import { useAppSelector } from '../../app/hooks';
 import { auth } from '../../firebase';
+import ProfilePlans from '../../components/plans/ProfilePlans';
 
 type Props = {};
 
@@ -19,6 +20,7 @@ const Profile = (props: Props) => {
             <h2>{user.email}</h2>
             <div className="profile__plans">
               <h3>Plans</h3>
+              <ProfilePlans />
               <button
                 className="profile__signOut"
                 onClick={() => {

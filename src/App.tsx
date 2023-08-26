@@ -9,6 +9,12 @@ import Profile from './pages/Profile/Profile';
 import SharedLayout from './pages/SharedLayout';
 import { useAppDispatch, useAppSelector } from './app/hooks';
 
+// TODO
+// fix responsivnes
+// add possibility to move movies
+// add loader for payment plans
+// fix cloud firestore rules
+
 function App() {
   const user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
