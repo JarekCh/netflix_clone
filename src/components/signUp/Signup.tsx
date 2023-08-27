@@ -10,6 +10,8 @@ import { error } from 'console';
 type Props = {};
 
 const Signup = (props: Props) => {
+  // TODO
+  // fix type any
   const emailRef = useRef<any>(null);
   const passwordRef = useRef<any>(null);
 

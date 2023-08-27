@@ -14,6 +14,7 @@ import { useAppDispatch, useAppSelector } from './app/hooks';
 // add possibility to move movies
 // add loader for payment plans
 // fix cloud firestore rules
+// fix any
 
 function App() {
   const user = useAppSelector(selectUser);
