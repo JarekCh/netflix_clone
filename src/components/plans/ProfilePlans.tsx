@@ -16,15 +16,19 @@ import {
 
 type Props = {};
 
-interface Product {
+interface Products {
   name: string;
   prices: any;
   active: boolean;
   description: string;
 }
 
+interface Product {
+  [productId: string]: Products;
+}
+
 const ProfilePlans = (props: Props) => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Products[]>([]);
 
   useEffect(() => {
     const productsRef = collection(db, 'products');
@@ -45,10 +49,25 @@ const ProfilePlans = (props: Props) => {
       setProducts(products);
     };
     getProducts();
-    console.log(products);
   }, []);
+  console.log(products);
 
-  return <div className="profilePlans">Plans</div>;
+  return (
+    <div className="profilePlans">
+      {Object.entries(products).map(([productId, productData]) => {
+        // TODO add logic to check if the user subscription is
+        return (
+          <div className="plans__plan" key={productId}>
+            <div className="plans__info">
+              <h5>{productData.name}</h5>
+              <h6>{productData.description}</h6>
+            </div>
+            <button>Subscribe</button>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default ProfilePlans;
