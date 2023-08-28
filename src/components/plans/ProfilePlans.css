@@ -1,0 +1,25 @@
+.plans__plan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  opacity: 0.8;
+}
+
+.plans__plan:hover {
+  opacity: 1;
+}
+
+.plans__info {
+  padding: 10px;
+}
+
+.plans__plan > button {
+  padding: 5px 10px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #e50914;
+  border: none;
+  border-radius: 0.2rem;
+  height: 60%;
+}

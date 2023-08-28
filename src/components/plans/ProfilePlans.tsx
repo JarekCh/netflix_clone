@@ -12,7 +12,12 @@ import {
   query,
   where,
   getDocs,
+  addDoc,
 } from 'firebase/firestore';
+import { useAppSelector } from '../../app/hooks';
+import { selectUser } from '../../features/userSlice';
+import { loadStripe } from '@stripe/stripe-js';
+import { applyMiddleware } from '@reduxjs/toolkit';
 
 type Props = {};
 
@@ -29,6 +34,7 @@ interface Product {
 
 const ProfilePlans = (props: Props) => {
   const [products, setProducts] = useState<Products[]>([]);
+  const user = useAppSelector(selectUser);
 
   useEffect(() => {
     const productsRef = collection(db, 'products');
@@ -50,7 +56,39 @@ const ProfilePlans = (props: Props) => {
     };
     getProducts();
   }, []);
-  console.log(products);
+
+  const loadCheckout = async (priceId: string) => {
+    const apiKey = process.env.REACT_APP_STRIPE_APIKEY;
+    const docRef = doc(collection(db, 'customer'), user.uid);
+    const checkoutSessionRef = collection(docRef, 'checkout_session');
+    const newCheckoutSessionRef = await addDoc(checkoutSessionRef, {
+      price: priceId,
+      success_url: window.location.origin,
+      cancel_url: window.location.origin,
+    });
+
+    const unsub = onSnapshot(newCheckoutSessionRef, async (snap) => {
+      const data = snap.data();
+      if (data) {
+        const { error, sessionId } = data;
+
+        if (error) {
+          // Show an error to customer and inspect your Cloud Function logs in Firebase Console
+          alert(`An error occurred: ${error.message}`);
+        }
+
+        if (sessionId) {
+          // We have a session, let's redirect to Checkout
+          // init stripe
+          if (apiKey) {
+            const stripe = await loadStripe(apiKey);
+            stripe?.redirectToCheckout({ sessionId });
+          }
+        }
+      }
+    });
+    unsub();
+  };
 
   return (
     <div className="profilePlans">
@@ -62,7 +100,9 @@ const ProfilePlans = (props: Props) => {
               <h5>{productData.name}</h5>
               <h6>{productData.description}</h6>
             </div>
-            <button>Subscribe</button>
+            <button onClick={() => loadCheckout(productData.prices.priceId)}>
+              Subscribe
+            </button>
           </div>
         );
       })}
