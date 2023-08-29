@@ -2,12 +2,7 @@ import { useEffect, useState } from 'react';
 import './ProfilePlans.css';
 import { db } from '../../firebase';
 import {
-  QuerySnapshot,
-  QueryDocumentSnapshot,
   collection,
-  updateDoc,
-  deleteDoc,
-  doc,
   onSnapshot,
   query,
   where,
@@ -16,8 +11,6 @@ import {
 } from 'firebase/firestore';
 import { useAppSelector } from '../../app/hooks';
 import { selectUser } from '../../features/userSlice';
-import { loadStripe } from '@stripe/stripe-js';
-import { applyMiddleware } from '@reduxjs/toolkit';
 
 type Props = {};
 
@@ -28,13 +21,32 @@ interface Products {
   description: string;
 }
 
-interface Product {
-  [productId: string]: Products;
+interface Subscription {
+  role: string;
+  current_period_end: number;
+  current_period_start: number;
 }
 
 const ProfilePlans = (props: Props) => {
   const [products, setProducts] = useState<Products[]>([]);
   const user = useAppSelector(selectUser);
+  const [subscription, setSubscription] = useState<Subscription | null>(null);
+
+  useEffect(() => {
+    const sub = collection(db, `customers/${user.uid}/subscriptions`);
+    const getPlan = async () => {
+      const Plan = await getDocs(sub);
+      Plan.forEach(async (sub: any) => {
+        const data = sub.data();
+        setSubscription({
+          role: data.role,
+          current_period_end: data.current_period_end.seconds,
+          current_period_start: data.current_period_start.seconds,
+        });
+      });
+    };
+    getPlan();
+  }, []);
 
   useEffect(() => {
     const productsRef = collection(db, 'products');
@@ -58,36 +70,27 @@ const ProfilePlans = (props: Props) => {
   }, []);
 
   const loadCheckout = async (priceId: string) => {
-    const apiKey = process.env.REACT_APP_STRIPE_APIKEY;
-    const docRef = doc(collection(db, 'customer'), user.uid);
-    const checkoutSessionRef = collection(docRef, 'checkout_session');
-    const newCheckoutSessionRef = await addDoc(checkoutSessionRef, {
-      price: priceId,
-      success_url: window.location.origin,
-      cancel_url: window.location.origin,
-    });
+    const docRef = await addDoc(
+      collection(db, `customers/${user.uid}/checkout_sessions`),
+      {
+        price: priceId,
+        success_url: window.location.origin,
+        cancel_url: window.location.origin,
+      },
+    );
 
-    const unsub = onSnapshot(newCheckoutSessionRef, async (snap) => {
+    onSnapshot(docRef, (snap) => {
       const data = snap.data();
-      if (data) {
-        const { error, sessionId } = data;
-
-        if (error) {
-          // Show an error to customer and inspect your Cloud Function logs in Firebase Console
-          alert(`An error occurred: ${error.message}`);
-        }
-
-        if (sessionId) {
-          // We have a session, let's redirect to Checkout
-          // init stripe
-          if (apiKey) {
-            const stripe = await loadStripe(apiKey);
-            stripe?.redirectToCheckout({ sessionId });
-          }
-        }
+      if (data?.error) {
+        // Show an error to your customer and
+        // inspect your Cloud Function logs in the Firebase console.
+        alert(`An error occured: ${data.error.message}`);
+      }
+      if (data?.url) {
+        // We have a Stripe Checkout URL, let's redirect.
+        window.location.assign(data.url);
       }
     });
-    unsub();
   };
 
   return (
