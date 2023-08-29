@@ -23,3 +23,7 @@
   border-radius: 0.2rem;
   height: 60%;
 }
+
+.plans__plan--disabled > button {
+  background-color: gray !important;
+}

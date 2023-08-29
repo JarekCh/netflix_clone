@@ -95,16 +95,35 @@ const ProfilePlans = (props: Props) => {
 
   return (
     <div className="profilePlans">
+      <br />
+      {subscription && (
+        <p>
+          Renewal date:{' '}
+          {new Date(
+            subscription?.current_period_end * 1000,
+          ).toLocaleDateString()}
+        </p>
+      )}
       {Object.entries(products).map(([productId, productData]) => {
         // TODO add logic to check if the user subscription is
+
+        const isCurrentPlan =
+          subscription?.role &&
+          productData.name?.toLowerCase().includes(subscription?.role);
+
         return (
-          <div className="plans__plan" key={productId}>
+          <div
+            className={`${
+              isCurrentPlan && 'plans__plan--disabled'
+            } plans__plan`}
+            key={productId}
+          >
             <div className="plans__info">
               <h5>{productData.name}</h5>
               <h6>{productData.description}</h6>
             </div>
             <button onClick={() => loadCheckout(productData.prices.priceId)}>
-              Subscribe
+              {isCurrentPlan ? 'Current Plan' : 'Subscribe'}
             </button>
           </div>
         );
