@@ -16,6 +16,7 @@ import { useAppDispatch, useAppSelector } from './app/hooks';
 // fix cloud firestore rules
 // fix any
 // add comments for html and functions
+// sdf@sdf.com / sdf123
 
 function App() {
   const user = useAppSelector(selectUser);

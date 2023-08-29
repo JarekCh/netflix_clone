@@ -29,8 +29,8 @@ interface Subscription {
 
 const ProfilePlans = (props: Props) => {
   const [products, setProducts] = useState<Products[]>([]);
-  const user = useAppSelector(selectUser);
   const [subscription, setSubscription] = useState<Subscription | null>(null);
+  const user = useAppSelector(selectUser);
 
   useEffect(() => {
     const sub = collection(db, `customers/${user.uid}/subscriptions`);
@@ -98,15 +98,13 @@ const ProfilePlans = (props: Props) => {
       <br />
       {subscription && (
         <p>
-          Renewal date:{' '}
+          Renewal date:
           {new Date(
             subscription?.current_period_end * 1000,
           ).toLocaleDateString()}
         </p>
       )}
       {Object.entries(products).map(([productId, productData]) => {
-        // TODO add logic to check if the user subscription is
-
         const isCurrentPlan =
           subscription?.role &&
           productData.name?.toLowerCase().includes(subscription?.role);
