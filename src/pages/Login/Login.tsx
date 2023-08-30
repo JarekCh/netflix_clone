@@ -5,6 +5,15 @@ import Signup from '../../components/signUp/Signup';
 
 type Props = {};
 
+interface jubo {
+  id: number;
+  title: string;
+  subTitle: string;
+  image: string;
+  alt: string;
+  direction: string;
+}
+
 const Login = (props: Props) => {
   const [signIn, setSignIn] = useState<boolean>(false);
 

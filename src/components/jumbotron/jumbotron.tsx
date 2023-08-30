@@ -1,4 +1,5 @@
 import './jumbotron.css';
+import juboData from '../../utils/jumbo.json';
 
 type Props = {};
 
