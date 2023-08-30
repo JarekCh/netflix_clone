@@ -36,3 +36,5 @@ export const config = {
     appId: '',
   },
 };
+
+export type FlexDirection = 'row' | 'row-reverse';

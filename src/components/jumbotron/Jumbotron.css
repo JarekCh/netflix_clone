@@ -1,0 +1,15 @@
+.jumbotron {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+  /* styles for smaller screens */
+  .jumbotron {
+    flex-direction: column;
+  }
+}
