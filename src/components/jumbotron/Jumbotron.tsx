@@ -10,7 +10,17 @@ type Props = {
 };
 
 const Jumbotron = ({ title, subTitle, image, alt, direction }: Props) => {
-  return <div className="jumbotron" style={{ flexDirection: direction }}></div>;
+  return (
+    <div className="jumbotron" style={{ flexDirection: direction }}>
+      <div className="jumbotron__contentWraper">
+        <h1>{title}</h1>
+        <h2>{subTitle}</h2>
+      </div>
+      <div className="jumbotron__contentWraper">
+        <img className="jumbotron__img" src={image} alt={alt} />
+      </div>
+    </div>
+  );
 };
 
 export default Jumbotron;

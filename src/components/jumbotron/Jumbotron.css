@@ -7,9 +7,39 @@
   width: 100%;
 }
 
+.jumbotron__contentWraper {
+  width: 50%;
+}
+
+.jumbotron__contentWraper > h1 {
+  font-size: 50px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.jumbotron__contentWraper > h2 {
+  font-size: 26px;
+  font-weight: normal;
+  line-height: normal;
+}
+
 @media only screen and (max-width: 1000px) {
   /* styles for smaller screens */
   .jumbotron {
     flex-direction: column;
+  }
+
+  .jumbotron__contentWraper {
+    width: 100%;
+    padding: 0 45px;
+    text-align: center;
+  }
+
+  .jumbotron__contentWraper > h1 {
+    font-size: 35px;
+  }
+
+  ..jumbotron__contentWraper > h2 {
+    font-size: 18px;
   }
 }

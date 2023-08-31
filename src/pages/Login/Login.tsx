@@ -47,7 +47,10 @@ const Login = (props: Props) => {
           <Signup />
         ) : (
           <>
-            <h1>Unlimited movies, TV shows, and more</h1>
+            <h1>
+              The biggest local and international hits. The best stories. All
+              streaming here.
+            </h1>
             <h2>Watch anywhere. Cancel anytime.</h2>
             <h3>
               Ready to watch? Enter your email to create or restart your
