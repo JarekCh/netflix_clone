@@ -6,6 +6,10 @@
   overflow: hidden;
 }
 
+.jumbotron__border:first-child {
+  border-top: 8px solid #222;
+}
+
 .jumbotron {
   display: flex;
   align-items: center;
@@ -19,13 +23,13 @@
   width: 50%;
 }
 
-.jumbotron__contentWraper > h1 {
+.jumbotron__contentWraper > h3 {
   font-size: 50px;
   line-height: 1.1;
   margin-bottom: 8px;
 }
 
-.jumbotron__contentWraper > h2 {
+.jumbotron__contentWraper > p {
   font-size: 26px;
   font-weight: normal;
   line-height: normal;
@@ -48,11 +52,11 @@
     text-align: center;
   }
 
-  .jumbotron__contentWraper > h1 {
+  .jumbotron__contentWraper > h3 {
     font-size: 28px;
   }
 
-  .jumbotron__contentWraper > h2 {
+  .jumbotron__contentWraper > p {
     font-size: 14px;
   }
 }

@@ -20,8 +20,8 @@ const Jumbotron = ({ title, subTitle, image, alt, direction }: Props) => {
         style={{ flexDirection: isAboveMediumScreens ? direction : 'column' }}
       >
         <div className="jumbotron__contentWraper">
-          <h1>{title}</h1>
-          <h2>{subTitle}</h2>
+          <h3>{title}</h3>
+          <p>{subTitle}</p>
         </div>
         <div className="jumbotron__contentWraper">
           <img className="jumbotron__img" src={image} alt={alt} />
