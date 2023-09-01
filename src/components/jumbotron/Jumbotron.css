@@ -1,3 +1,11 @@
+.jumbotron__border {
+  display: flex;
+  border-bottom: 8px solid #222;
+  padding: 50px 5%;
+  color: white;
+  overflow: hidden;
+}
+
 .jumbotron {
   display: flex;
   align-items: center;
@@ -23,6 +31,11 @@
   line-height: normal;
 }
 
+.jumbotron__img {
+  max-width: 100%;
+  height: auto;
+}
+
 @media only screen and (max-width: 1000px) {
   /* styles for smaller screens */
   .jumbotron {
@@ -36,10 +49,10 @@
   }
 
   .jumbotron__contentWraper > h1 {
-    font-size: 35px;
+    font-size: 28px;
   }
 
-  ..jumbotron__contentWraper > h2 {
-    font-size: 18px;
+  .jumbotron__contentWraper > h2 {
+    font-size: 14px;
   }
 }
