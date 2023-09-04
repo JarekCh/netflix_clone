@@ -17,6 +17,7 @@ import { useAppDispatch, useAppSelector } from './app/hooks';
 // fix any
 // add comments for html and functions
 // sdf@sdf.com / sdf123
+//add code optimization memo/callback/lazyLoading
 
 function App() {
   const user = useAppSelector(selectUser);

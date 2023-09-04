@@ -38,8 +38,8 @@ const Footer = (props: Props) => {
           <a href="#">Cookie Preferences</a>
           <a href="#">Legal Guarantee</a>
         </div>
+        <div className="footer__break" />
       </div>
-      <div className="footer__break" />
       <p className="footer__text">Netflix Poland</p>
     </div>
   );
