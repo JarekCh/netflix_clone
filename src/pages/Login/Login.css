@@ -104,3 +104,8 @@
 .login__jubmo {
   width: 100%;
 }
+
+.login__faq {
+  display: flex;
+  border-bottom: 8px solid #222;
+}

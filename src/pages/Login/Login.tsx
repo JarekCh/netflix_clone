@@ -3,7 +3,7 @@ import Netflix from '../../assets/netflixLogoT.png';
 import { useState } from 'react';
 import Signup from '../../components/signUp/Signup';
 import juboData from '../../utils/jumbo.json';
-import { Jumbotron, Footer } from '../../components/';
+import { Jumbotron, Footer, Faq } from '../../components/';
 import { FlexDirection } from '../../utils/shared/types';
 
 type Props = {};
@@ -42,6 +42,7 @@ const Login = (props: Props) => {
           />
         ))}
       </section>
+      <section className="login__faq"></section>
       <Footer />
       <div className="login__body">
         {signIn ? (

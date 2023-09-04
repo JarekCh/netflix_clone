@@ -1,0 +1,28 @@
+.faqItem {
+  color: white;
+  margin: auto;
+  margin-bottom: 10px;
+  max-width: 728px;
+  width: 100%;
+}
+
+.faqItem:first-of-type {
+  margin-top: 3em;
+}
+
+.faqItem:last-of-type {
+  margin-bottom: 0;
+}
+
+.faqItem__header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-bottom: 1px;
+  font-size: 26px;
+  font-weight: normal;
+  background: #303030;
+  padding: 0.8em 1.2em 0.8em 1.2em;
+  user-select: none;
+  align-items: center;
+}
