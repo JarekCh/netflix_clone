@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './Faq';
+import './Faq.css';
 
 type Props = {
   id: number;
@@ -10,10 +10,27 @@ type Props = {
 const Faq = ({ header, body, id }: Props) => {
   const [showItem, setShowItem] = useState<boolean>(false);
 
+  const handleClick = () => {
+    setShowItem((prevState) => !prevState);
+  };
+
   return (
-    <div className="faqItem" key={id}>
-      <div className="faqItem__header">{header}</div>
-      <div>{body}</div>
+    <div className="faq">
+      <div className="faq__header" onClick={() => handleClick()}>
+        {header}
+        {showItem ? (
+          <img src="/img/icons/close-slim.png" alt="Close" />
+        ) : (
+          <img src="/img/icons/add.png" alt="Open" />
+        )}
+      </div>
+      <div
+        className={`faq__body ${
+          showItem ? 'faq__body--open' : 'faq__body--closed'
+        }`}
+      >
+        {body}
+      </div>
     </div>
   );
 };

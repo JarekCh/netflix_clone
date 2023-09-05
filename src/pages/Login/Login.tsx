@@ -52,7 +52,7 @@ const Login = (props: Props) => {
       <section className="login__faq">
         <div className="faq__container">
           <h1>Frequently Asked Questions</h1>
-          <div className="faq__frame">
+          <div>
             {faqsData.map((item: faq) => (
               <Faq
                 key={item.id}

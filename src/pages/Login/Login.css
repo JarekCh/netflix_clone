@@ -127,10 +127,6 @@
   text-align: center;
 }
 
-.faq__frame {
-  margin-bottom: 40px;
-}
-
 @media only screen and (max-width: 600px) {
   .faq__container > h1 {
     font-size: 35px;
