@@ -109,3 +109,30 @@
   display: flex;
   border-bottom: 8px solid #222;
 }
+
+.faq__container {
+  display: flex;
+  padding: 70px 45px;
+  flex-direction: column;
+  max-width: 815px;
+  margin: auto;
+}
+
+.faq__container > h1 {
+  font-size: 50px;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: white;
+  text-align: center;
+}
+
+.faq__frame {
+  margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+  .faq__container > h1 {
+    font-size: 35px;
+  }
+}

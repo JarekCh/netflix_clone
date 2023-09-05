@@ -1,21 +1,19 @@
 import { useState } from 'react';
 import './Faq';
-import faqsData from '../../utils/faqs.json';
-import FaqItem from './faqItem/FaqItem';
 
-type Props = {};
+type Props = {
+  id: number;
+  header: string;
+  body: string;
+};
 
-const Faq = (props: Props) => {
+const Faq = ({ header, body, id }: Props) => {
   const [showItem, setShowItem] = useState<boolean>(false);
 
   return (
-    <div className="faq__container">
-      <h1>TItle</h1>
-      <div className="faq__frame">
-        {faqsData.map((item) => {
-          <FaqItem />;
-        })}
-      </div>
+    <div className="faqItem" key={id}>
+      <div className="faqItem__header">{header}</div>
+      <div>{body}</div>
     </div>
   );
 };
