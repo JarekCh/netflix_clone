@@ -1,37 +1,32 @@
-import { useState } from 'react';
 import './Faq.css';
+import faqsData from '../../utils/faqs.json';
+import FaqItem from './faqItem/FaqItem';
 
-type Props = {
+type Props = {};
+
+interface faq {
   id: number;
   header: string;
   body: string;
-};
+}
 
-const Faq = ({ header, body, id }: Props) => {
-  const [showItem, setShowItem] = useState<boolean>(false);
-
-  const handleClick = () => {
-    setShowItem((prevState) => !prevState);
-  };
-
+const Faq = ({}: Props) => {
   return (
-    <div className="faq">
-      <div className="faq__header" onClick={() => handleClick()}>
-        {header}
-        {showItem ? (
-          <img src="/img/icons/close-slim.png" alt="Close" />
-        ) : (
-          <img src="/img/icons/add.png" alt="Open" />
-        )}
+    <section className="login__faq">
+      <div className="faq__container">
+        <h1>Frequently Asked Questions</h1>
+        <div>
+          {faqsData.map((item: faq) => (
+            <FaqItem
+              key={item.id}
+              header={item.header}
+              body={item.body}
+              id={item.id}
+            />
+          ))}
+        </div>
       </div>
-      <div
-        className={`faq__body ${
-          showItem ? 'faq__body--open' : 'faq__body--closed'
-        }`}
-      >
-        {body}
-      </div>
-    </div>
+    </section>
   );
 };
 

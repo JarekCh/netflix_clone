@@ -3,7 +3,7 @@ import Netflix from '../../assets/netflixLogoT.png';
 import { useState } from 'react';
 import Signup from '../../components/signUp/Signup';
 import juboData from '../../utils/jumbo.json';
-import faqsData from '../../utils/faqs.json';
+
 import { Jumbotron, Footer, Faq } from '../../components/';
 import { FlexDirection } from '../../utils/shared/types';
 
@@ -16,12 +16,6 @@ interface jubo {
   image: string;
   alt: string;
   direction: string;
-}
-
-interface faq {
-  id: number;
-  header: string;
-  body: string;
 }
 
 const Login = (props: Props) => {
@@ -49,21 +43,8 @@ const Login = (props: Props) => {
           />
         ))}
       </section>
-      <section className="login__faq">
-        <div className="faq__container">
-          <h1>Frequently Asked Questions</h1>
-          <div>
-            {faqsData.map((item: faq) => (
-              <Faq
-                key={item.id}
-                header={item.header}
-                body={item.body}
-                id={item.id}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      <Faq />
+
       <Footer />
       <div className="login__body">
         {signIn ? (
