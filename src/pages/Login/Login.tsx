@@ -2,25 +2,13 @@ import './Login.css';
 import Netflix from '../../assets/netflixLogoT.png';
 import { useState } from 'react';
 import Signup from '../../components/signUp/Signup';
-import juboData from '../../utils/jumbo.json';
 
 import { Jumbotron, Footer, Faq } from '../../components/';
-import { FlexDirection } from '../../utils/shared/types';
 
 type Props = {};
 
-interface jubo {
-  id: number;
-  title: string;
-  subTitle: string;
-  image: string;
-  alt: string;
-  direction: string;
-}
-
 const Login = (props: Props) => {
   const [signIn, setSignIn] = useState<boolean>(false);
-  console.log(juboData);
 
   return (
     <div className="login">
@@ -31,20 +19,8 @@ const Login = (props: Props) => {
         </button>
         <div className="login__gradient"></div>
       </section>
-      <section className="login__jubmo">
-        {juboData.map((item: jubo) => (
-          <Jumbotron
-            key={item.id}
-            direction={item.direction as FlexDirection}
-            title={item.title}
-            image={item.image}
-            alt={item.alt}
-            subTitle={item.subTitle}
-          />
-        ))}
-      </section>
+      <Jumbotron />
       <Faq />
-
       <Footer />
       <div className="login__body">
         {signIn ? (

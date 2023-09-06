@@ -1,33 +1,33 @@
 import './Jumbotron.css';
 import { FlexDirection } from '../../utils/shared/types';
-import useMediaQuery from '../../utils/hooks/useMadiaQuery';
+import juboData from '../../utils/jumbo.json';
+import JumbotronItem from './jumbotronItem/JumbotronItem';
 
-type Props = {
+type Props = {};
+
+interface jubo {
+  id: number;
   title: string;
   subTitle: string;
   image: string;
   alt: string;
-  direction: FlexDirection;
-};
+  direction: string;
+}
 
-const Jumbotron = ({ title, subTitle, image, alt, direction }: Props) => {
-  const isAboveMediumScreens = useMediaQuery('(min-width: 900px)');
-
+const Jumbotron = (props: Props) => {
   return (
-    <div className="jumbotron__border">
-      <div
-        className="jumbotron"
-        style={{ flexDirection: isAboveMediumScreens ? direction : 'column' }}
-      >
-        <div className="jumbotron__contentWraper">
-          <h3>{title}</h3>
-          <p>{subTitle}</p>
-        </div>
-        <div className="jumbotron__contentWraper">
-          <img className="jumbotron__img" src={image} alt={alt} />
-        </div>
-      </div>
-    </div>
+    <section className="login__jubmo">
+      {juboData.map((item: jubo) => (
+        <JumbotronItem
+          key={item.id}
+          direction={item.direction as FlexDirection}
+          title={item.title}
+          image={item.image}
+          alt={item.alt}
+          subTitle={item.subTitle}
+        />
+      ))}
+    </section>
   );
 };
 
