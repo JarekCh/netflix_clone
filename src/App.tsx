@@ -18,7 +18,6 @@ import { useAppDispatch, useAppSelector } from './app/hooks';
 // add comments for html and functions
 // sdf@sdf.com / sdf123
 //add code optimization memo/callback/lazyLoading
-// create component for faq and jumbotron
 
 function App() {
   const user = useAppSelector(selectUser);

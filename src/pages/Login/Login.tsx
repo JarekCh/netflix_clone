@@ -1,9 +1,8 @@
 import './Login.css';
-import Netflix from '../../assets/netflixLogoT.png';
 import { useState } from 'react';
-import Signup from '../../components/signUp/Signup';
-
+import SignUp from '../../components/signUp/SignUp';
 import { Jumbotron, Footer, Faq } from '../../components/';
+import LoginHeader from '../../components/loginHeader/LoginHeader';
 
 type Props = {};
 
@@ -12,19 +11,13 @@ const Login = (props: Props) => {
 
   return (
     <div className="login">
-      <section className="login__background">
-        <img className="login__logo" src={Netflix} alt=""></img>
-        <button onClick={() => setSignIn(true)} className="login__button">
-          Sign In
-        </button>
-        <div className="login__gradient"></div>
-      </section>
+      <LoginHeader />
       <Jumbotron />
       <Faq />
       <Footer />
       <div className="login__body">
         {signIn ? (
-          <Signup />
+          <SignUp />
         ) : (
           <>
             <h1>

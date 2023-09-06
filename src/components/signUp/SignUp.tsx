@@ -5,23 +5,20 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { error } from 'console';
 
 type Props = {};
 
-const Signup = (props: Props) => {
-  // TODO
-  // fix type any
-  const emailRef = useRef<any>(null);
-  const passwordRef = useRef<any>(null);
+const SignUp = (props: Props) => {
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
 
   const register = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     await createUserWithEmailAndPassword(
       auth,
-      emailRef.current.value,
-      passwordRef.current.value,
+      emailRef.current?.value ?? '',
+      passwordRef.current?.value ?? '',
     )
       .then((authUser) => {
         console.log(authUser);
@@ -34,8 +31,8 @@ const Signup = (props: Props) => {
 
     await signInWithEmailAndPassword(
       auth,
-      emailRef.current.value,
-      passwordRef.current.value,
+      emailRef.current?.value ?? '',
+      passwordRef.current?.value ?? '',
     )
       .then((authUser) => {
         console.log(authUser);
@@ -64,4 +61,4 @@ const Signup = (props: Props) => {
   );
 };
 
-export default Signup;
+export default SignUp;
