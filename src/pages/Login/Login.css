@@ -3,34 +3,6 @@
   background-color: black;
 }
 
-/* .login__body {
-  position: absolute;
-  top: 18%;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  text-align: center;
-  z-index: 1;
-  color: white;
-  padding: 20px;
-}
-
-.login__body > h1 {
-  font-size: 3.125rem;
-  margin-bottom: 20px;
-}
-
-.login__body > h2 {
-  font-size: 2rem;
-  font-weight: 400;
-  margin-bottom: 20px;
-}
-
-.login__body > h3 {
-  font-size: 1.3rem;
-  font-weight: 400;
-}
-
 .login__input > form > input {
   padding: 12px;
   outline-width: 0;
@@ -42,7 +14,8 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   margin-right: 10px;
-} */
+}
+*/
 
 /* .login__input {
   margin: 20px;
