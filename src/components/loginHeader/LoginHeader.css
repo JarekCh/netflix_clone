@@ -19,24 +19,75 @@
   );
 }
 
+.loginHeader__top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 1300px;
+  z-index: 0;
+  margin: 0 auto;
+  padding: 20px;
+  height: 20px;
+}
+
 .loginHeader__button {
-  position: fixed;
-  right: 20px;
+  position: absolute;
+  right: 0px;
   top: 20px;
-  padding: 10px 20px;
+  padding: 6px 16px;
   font-size: 1rem;
   color: #fff;
   background-color: #e50914;
   border: none;
   border-radius: 4px;
   font-weight: 600;
+  margin-right: 20px;
 }
 
 .loginHeader__logo {
-  position: fixed;
-  left: 0;
+  position: absolute;
+  left: 0%;
   top: 20px;
-  width: 160px;
+  width: 140px;
   object-fit: contain;
   padding-left: 20px;
+}
+
+.loginHeader__bottom {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 0;
+  color: white;
+  padding: 20px;
+  max-width: 1200px;
+}
+
+.loginHeader__bottom > h1 {
+  font-size: 2.6rem;
+  margin-bottom: 20px;
+}
+
+.loginHeader__bottom > h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+  .loginHeader__bottom > h1 {
+    font-size: 1.8rem;
+  }
+
+  .loginHeader__bottom > h2 {
+    font-size: 1rem;
+  }
+
+  .loginHeader__logo {
+    width: 100px;
+  }
 }

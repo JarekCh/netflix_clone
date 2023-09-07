@@ -15,21 +15,16 @@ const Login = (props: Props) => {
       <Jumbotron />
       <Faq />
       <Footer />
-      <div className="login__body">
+      {/* <div className="login__body">
         {signIn ? (
           <SignUp />
         ) : (
           <>
-            <h1>
-              The biggest local and international hits. The best stories. All
-              streaming here.
-            </h1>
-            <h2>Watch anywhere. Cancel anytime.</h2>
-            <h3>
-              Ready to watch? Enter your email to create or restart your
-              membership.
-            </h3>
             <div className="login__input">
+              <h3>
+                Ready to watch? Enter your email to create or restart your
+                membership.
+              </h3>
               <form>
                 <input type="email" placeholder="Email Adress" />
                 <button
@@ -42,7 +37,7 @@ const Login = (props: Props) => {
             </div>
           </>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
