@@ -1,6 +1,7 @@
 import './Faq.css';
 import faqsData from '../../utils/faqs.json';
 import FaqItem from './faqItem/FaqItem';
+import LoginForm from '../loginForm/LoginForm';
 
 type Props = {};
 
@@ -25,6 +26,7 @@ const Faq = ({}: Props) => {
             />
           ))}
         </div>
+        <LoginForm />
       </div>
     </section>
   );

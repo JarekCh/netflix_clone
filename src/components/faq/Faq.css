@@ -11,6 +11,10 @@
   margin: auto;
 }
 
+.faq__container > div {
+  margin-bottom: 40px;
+}
+
 .faq__container > h1 {
   font-size: 50px;
   line-height: 1.1;

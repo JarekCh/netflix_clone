@@ -3,24 +3,6 @@
   background-color: black;
 }
 
-.login__input > form > input {
-  padding: 12px;
-  outline-width: 0;
-  height: 100%;
-  width: 30%;
-  border: solid white 1px;
-  border-radius: 4px;
-  max-width: 300px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  margin-right: 10px;
-}
-*/
-
-/* .login__input {
-  margin: 20px;
-} */
-
 .login__getStarted {
   padding: 12px 16px;
   font-size: 1rem;

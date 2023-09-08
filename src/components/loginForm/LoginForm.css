@@ -1,0 +1,56 @@
+.loginForm > form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.loginForm > form > input {
+  padding: 12px;
+  outline-width: 0;
+  height: 100%;
+  width: 30%;
+  border: solid white 1px;
+  border-radius: 4px;
+  max-width: 300px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  margin-right: 10px;
+}
+
+.login__input {
+  margin: 20px;
+}
+
+.loginForm > h3 {
+  font-size: 1rem;
+  text-align: center;
+  color: white;
+}
+
+.loginForm > form > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.loginForm > form > button > img {
+  width: 16px;
+  filter: brightness(0) invert(1);
+}
+
+@media only screen and (max-width: 800px) {
+  .loginForm > h3 {
+    font-size: 0.8rem;
+  }
+
+  .loginForm > form {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .loginForm > form > input {
+    width: 100%;
+  }
+}

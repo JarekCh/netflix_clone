@@ -1,4 +1,5 @@
 import Netflix from '../../assets/netflixLogoT.png';
+import LoginForm from '../loginForm/LoginForm';
 import './LoginHeader.css';
 
 type Props = {};
@@ -25,6 +26,7 @@ const LoginHeader = (props: Props) => {
           streaming here.
         </h1>
         <h2>Watch anywhere. Cancel anytime.</h2>
+        <LoginForm />
       </div>
 
       {/* login gradient */}
