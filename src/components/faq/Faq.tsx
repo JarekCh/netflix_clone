@@ -26,6 +26,8 @@ const Faq = ({}: Props) => {
             />
           ))}
         </div>
+      </div>
+      <div>
         <LoginForm />
       </div>
     </section>

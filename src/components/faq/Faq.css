@@ -1,18 +1,17 @@
 .login__faq {
-  display: flex;
   border-bottom: 8px solid #222;
+}
+
+.login__faq > div:last-child {
+  margin-bottom: 40px;
 }
 
 .faq__container {
   display: flex;
-  padding: 70px 45px;
+  padding: 45px 45px;
   flex-direction: column;
   max-width: 815px;
   margin: auto;
-}
-
-.faq__container > div {
-  margin-bottom: 40px;
 }
 
 .faq__container > h1 {
