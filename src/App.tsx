@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import { useEffect } from 'react';
 import { auth } from './firebase';
-import { login, logout, selectUser } from './features/userSlice';
+import { login, logout, selectUser } from './features/userSlice/userSlice';
 import Profile from './pages/Profile/Profile';
 import SharedLayout from './pages/SharedLayout';
 import { useAppDispatch, useAppSelector } from './app/hooks';

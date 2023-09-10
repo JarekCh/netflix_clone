@@ -10,7 +10,7 @@ import {
   addDoc,
 } from 'firebase/firestore';
 import { useAppSelector } from '../../app/hooks';
-import { selectUser } from '../../features/userSlice';
+import { selectUser } from '../../features/userSlice/userSlice';
 
 type Props = {};
 

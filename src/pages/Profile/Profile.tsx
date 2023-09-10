@@ -1,6 +1,6 @@
 import './Profile.css';
 import netflixAvatar from '../../assets/netflixAvatar.png';
-import { selectUser } from '../../features/userSlice';
+import { selectUser } from '../../features/userSlice/userSlice';
 import { useAppSelector } from '../../app/hooks';
 import { auth } from '../../firebase';
 import ProfilePlans from '../../components/plans/ProfilePlans';
