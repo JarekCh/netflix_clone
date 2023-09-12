@@ -19,6 +19,6 @@ export const userEmailSlice = createSlice({
 });
 
 export const { setEmail, resetEmail } = userEmailSlice.actions;
-export const selectUserEmail = (state: any) => state.email;
+export const selectUserEmail = (state: any) => state.userEmail.email;
 
 export default userEmailSlice.reducer;

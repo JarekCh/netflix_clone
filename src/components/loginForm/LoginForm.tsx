@@ -4,23 +4,20 @@ import {
   setEmail,
   selectUserEmail,
 } from '../../features/userEmailSlice/userEmailSlice';
+import { useState } from 'react';
 
 type Props = {};
 
 const LoginForm = (props: Props) => {
+  const [tempEmail, setTempEmail] = useState<string | ''>('');
   const userEmail = useAppSelector(selectUserEmail);
 
   const dispatch = useAppDispatch();
 
-  const getEmial = (e: any) => {
+  const getEmail = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    dispatch(setEmail(e));
+    dispatch(setEmail(tempEmail));
   };
-
-  console.log(
-    '🚀 ~ file: LoginForm.tsx:12 ~ LoginForm ~ userEmail:',
-    userEmail,
-  );
 
   return (
     <div className="loginForm">
@@ -28,11 +25,12 @@ const LoginForm = (props: Props) => {
         Ready to watch? Enter your email to create or restart your membership.
       </h3>
       <form>
-        <input type="email" placeholder="Email Adress" />
-        <button
-          onClick={() => getEmial('abc@gmail.com')}
-          className="login__getStarted"
-        >
+        <input
+          type="email"
+          placeholder="Email Adress"
+          onChange={(e) => setTempEmail(e.target.value)}
+        />
+        <button onClick={(e) => getEmail(e)} className="login__getStarted">
           GET STARTED
           <img src="/img/icons/chevron-right.png" alt="" />
         </button>
