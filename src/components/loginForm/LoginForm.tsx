@@ -32,7 +32,7 @@ const LoginForm = (props: Props) => {
         />
         <button onClick={(e) => getEmail(e)} className="login__getStarted">
           GET STARTED
-          <img src="/img/icons/chevron-right.png" alt="" />
+          <img src="/img/icons/chevron-right.png" alt="Try Now" />
         </button>
       </form>
     </div>

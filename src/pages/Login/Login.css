@@ -2,13 +2,3 @@
   height: 100vh;
   background-color: black;
 }
-
-.login__getStarted {
-  padding: 12px 16px;
-  font-size: 1rem;
-  color: white;
-  background-color: #e50914;
-  border: none;
-  border-radius: 4px;
-  font-weight: 600;
-}

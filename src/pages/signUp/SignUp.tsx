@@ -41,22 +41,24 @@ const SignUp = (props: Props) => {
   };
 
   return (
-    <div className="singup">
-      <form>
-        <h1>Sing In</h1>
-        <input ref={emailRef} placeholder="Email" type="email" />
-        <input ref={passwordRef} placeholder="Password" type="password" />
-        <button type="submit" onClick={signIn}>
-          Sign In
-        </button>
+    <div className="signup__background">
+      <div className="signup">
+        <form>
+          <h1>Sing In</h1>
+          <input ref={emailRef} placeholder="Email" type="email" />
+          <input ref={passwordRef} placeholder="Password" type="password" />
+          <button type="submit" onClick={signIn}>
+            Sign In
+          </button>
 
-        <h4>
-          <span className="signup__gray">New to Netflix?</span>
-          <span className="signup__link" onClick={register}>
-            Sign up now.
-          </span>
-        </h4>
-      </form>
+          <h4>
+            <span className="signup__gray">New to Netflix?</span>
+            <span className="signup__link" onClick={register}>
+              Sign up now.
+            </span>
+          </h4>
+        </form>
+      </div>
     </div>
   );
 };

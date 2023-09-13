@@ -8,6 +8,7 @@ import { login, logout, selectUser } from './features/userSlice/userSlice';
 import Profile from './pages/Profile/Profile';
 import SharedLayout from './pages/SharedLayout';
 import { useAppDispatch, useAppSelector } from './app/hooks';
+import SignUp from './pages/signUp/SignUp';
 
 // TODO
 // fix responsivnes
@@ -46,7 +47,10 @@ function App() {
     <div className="app">
       <BrowserRouter>
         {!user ? (
-          <Login />
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+          </Routes>
         ) : (
           <Routes>
             <Route path="/" element={<SharedLayout />}>
