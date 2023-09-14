@@ -1,22 +1,21 @@
 import './LoginForm.css';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import {
-  setEmail,
-  selectUserEmail,
-} from '../../features/userEmailSlice/userEmailSlice';
+import { setEmail } from '../../features/userEmailSlice/userEmailSlice';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {};
 
 const LoginForm = (props: Props) => {
   const [tempEmail, setTempEmail] = useState<string | ''>('');
-  const userEmail = useAppSelector(selectUserEmail);
+  const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
 
   const getEmail = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     dispatch(setEmail(tempEmail));
+    navigate('/signup');
   };
 
   return (

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Netflix from '../../assets/netflixLogoT.png';
 import LoginForm from '../loginForm/LoginForm';
 import './LoginHeader.css';
@@ -5,14 +6,23 @@ import './LoginHeader.css';
 type Props = {};
 
 const LoginHeader = (props: Props) => {
+  const navigate = useNavigate();
+
   return (
     <section className="loginHeader__background">
       {/* top part of header */}
       <div className="loginHeader__top">
-        <img className="loginHeader__logo" src={Netflix} alt=""></img>
+        <img
+          className="loginHeader__logo"
+          src={Netflix}
+          alt=""
+          onClick={() => {
+            navigate('/', { replace: true });
+          }}
+        />
         <button
           onClick={() => {
-            console.log('you clicked me');
+            navigate('/signup', { replace: true });
           }}
           className="loginHeader__button"
         >

@@ -52,6 +52,7 @@
   width: 140px;
   object-fit: contain;
   padding-left: 20px;
+  cursor: pointer;
 }
 
 .loginHeader__bottom {
