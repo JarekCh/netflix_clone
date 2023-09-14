@@ -7,13 +7,24 @@ import {
 } from 'firebase/auth';
 import Netflix from '../../assets/netflixLogoT.png';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import {
+  resetEmail,
+  selectUserEmail,
+} from '../../features/userEmailSlice/userEmailSlice';
 
 type Props = {};
 
 const SignUp = (props: Props) => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const userEmail = useAppSelector(selectUserEmail);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const clearEamil = () => {
+    dispatch(resetEmail());
+  };
 
   const register = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -27,6 +38,7 @@ const SignUp = (props: Props) => {
         console.log(authUser);
       })
       .catch((err) => alert(err.message));
+    clearEamil();
   };
 
   const signIn = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -42,6 +54,7 @@ const SignUp = (props: Props) => {
       })
       .catch((err) => alert(err.message));
     navigate('/', { replace: true });
+    clearEamil();
   };
 
   return (
@@ -57,7 +70,13 @@ const SignUp = (props: Props) => {
       <div className="signup">
         <form>
           <h1>Sing In</h1>
-          <input ref={emailRef} placeholder="Email" type="email"></input>
+          <input
+            ref={emailRef}
+            placeholder="Email"
+            type="email"
+            value={userEmail}
+          />
+
           <input ref={passwordRef} placeholder="Password" type="password" />
           <button type="submit" onClick={signIn}>
             Sign In
