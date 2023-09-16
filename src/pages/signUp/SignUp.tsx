@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import './SignUp.css';
 import { auth } from '../../firebase';
 import {
@@ -16,9 +16,9 @@ import {
 type Props = {};
 
 const SignUp = (props: Props) => {
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
   const userEmail = useAppSelector(selectUserEmail);
+  const [userEmailInput, setUserEmailInput] = useState<string>(userEmail);
+  const [userPassword, setUserPassword] = useState<string>('');
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -29,32 +29,23 @@ const SignUp = (props: Props) => {
   const register = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    await createUserWithEmailAndPassword(
-      auth,
-      emailRef.current?.value ?? '',
-      passwordRef.current?.value ?? '',
-    )
-      .then((authUser) => {
-        console.log(authUser);
+    await createUserWithEmailAndPassword(auth, userEmailInput, userPassword)
+      .then(() => {
+        navigate('/', { replace: true });
+        clearEamil();
       })
       .catch((err) => alert(err.message));
-    clearEamil();
   };
 
   const signIn = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    await signInWithEmailAndPassword(
-      auth,
-      emailRef.current?.value ?? '',
-      passwordRef.current?.value ?? '',
-    )
-      .then((authUser) => {
-        console.log(authUser);
+    await signInWithEmailAndPassword(auth, userEmailInput, userPassword)
+      .then(() => {
+        navigate('/', { replace: true });
+        clearEamil();
       })
       .catch((err) => alert(err.message));
-    navigate('/', { replace: true });
-    clearEamil();
   };
 
   return (
@@ -71,13 +62,17 @@ const SignUp = (props: Props) => {
         <form>
           <h1>Sing In</h1>
           <input
-            ref={emailRef}
             placeholder="Email"
             type="email"
-            value={userEmail}
+            value={userEmailInput}
+            onChange={(e) => setUserEmailInput(e.target.value)}
           />
 
-          <input ref={passwordRef} placeholder="Password" type="password" />
+          <input
+            placeholder="Password"
+            type="password"
+            onChange={(e) => setUserPassword(e.target.value)}
+          />
           <button type="submit" onClick={signIn}>
             Sign In
           </button>

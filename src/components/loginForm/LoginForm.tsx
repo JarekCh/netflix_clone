@@ -6,16 +6,22 @@ import { useNavigate } from 'react-router-dom';
 
 type Props = {};
 
+// TODO
+// input seafty reg exp
+// add input error
+
 const LoginForm = (props: Props) => {
   const [tempEmail, setTempEmail] = useState<string | ''>('');
   const navigate = useNavigate();
-
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const dispatch = useAppDispatch();
 
   const getEmail = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    dispatch(setEmail(tempEmail));
-    navigate('/signup');
+    if (emailRegex.test(tempEmail)) {
+      dispatch(setEmail(tempEmail));
+      navigate('/signup');
+    }
   };
 
   return (
