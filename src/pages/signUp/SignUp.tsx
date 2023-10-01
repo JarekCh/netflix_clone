@@ -15,6 +15,8 @@ import {
 
 type Props = {};
 
+// add input error to more friendly
+
 const SignUp = (props: Props) => {
   const userEmail = useAppSelector(selectUserEmail);
   const [userEmailInput, setUserEmailInput] = useState<string>(userEmail);
@@ -24,6 +26,8 @@ const SignUp = (props: Props) => {
 
   const clearEamil = () => {
     dispatch(resetEmail());
+    setUserEmailInput('');
+    setUserPassword('');
   };
 
   const register = async (e: React.MouseEvent<HTMLButtonElement>) => {

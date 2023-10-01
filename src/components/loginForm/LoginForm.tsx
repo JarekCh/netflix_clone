@@ -7,20 +7,24 @@ import { useNavigate } from 'react-router-dom';
 type Props = {};
 
 // TODO
-// input seafty reg exp
 // add input error
 
 const LoginForm = (props: Props) => {
   const [tempEmail, setTempEmail] = useState<string | ''>('');
+  const [isError, setIsError] = useState<boolean>(false);
   const navigate = useNavigate();
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const dispatch = useAppDispatch();
 
   const getEmail = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    if (!emailRegex.test(tempEmail)) {
+      setIsError(true);
+    }
     if (emailRegex.test(tempEmail)) {
       dispatch(setEmail(tempEmail));
       navigate('/signup');
+      setIsError(false);
     }
   };
 
@@ -30,11 +34,16 @@ const LoginForm = (props: Props) => {
         Ready to watch? Enter your email to create or restart your membership.
       </h3>
       <form>
-        <input
-          type="email"
-          placeholder="Email Adress"
-          onChange={(e) => setTempEmail(e.target.value)}
-        />
+        <div className="loginForm__inputWrapper">
+          <input
+            type="email"
+            placeholder="Email Adress"
+            onChange={(e) => setTempEmail(e.target.value)}
+          />
+          {isError && (
+            <p className="loginForm__inputWrapperError">Email is required.</p>
+          )}
+        </div>
         <button onClick={(e) => getEmail(e)} className="login__getStarted">
           GET STARTED
           <img src="/img/icons/chevron-right.png" alt="Try Now" />

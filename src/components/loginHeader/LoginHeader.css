@@ -1,6 +1,6 @@
 .loginHeader__background {
   position: relative;
-  height: 500px;
+  height: 520px;
   background: url(https://miro.medium.com/v2/resize:fit:720/format:webp/1*5lyavS59mazOFnb55Z6znQ.png)
     center no-repeat;
   background-size: cover;
@@ -9,7 +9,7 @@
 .loginHeader__gradient {
   width: 100%;
   z-index: 1;
-  height: 500px;
+  height: 520px;
   background: rgba(0, 0, 0, 0.4);
   background-image: linear-gradient(
     to top,
