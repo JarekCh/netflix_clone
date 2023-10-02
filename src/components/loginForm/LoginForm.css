@@ -23,6 +23,7 @@
   max-width: 300px;
   margin-right: 10px;
 }
+
 .loginForm__inputWrapperError {
   position: absolute;
   color: rgb(177, 4, 4);

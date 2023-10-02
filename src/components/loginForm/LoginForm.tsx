@@ -6,9 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 type Props = {};
 
-// TODO
-// add input error
-
 const LoginForm = (props: Props) => {
   const [tempEmail, setTempEmail] = useState<string | ''>('');
   const [isError, setIsError] = useState<boolean>(false);

@@ -15,14 +15,17 @@ import {
 
 type Props = {};
 
-// add input error to more friendly
+// add input error to be more friendly
 
 const SignUp = (props: Props) => {
   const userEmail = useAppSelector(selectUserEmail);
   const [userEmailInput, setUserEmailInput] = useState<string>(userEmail);
   const [userPassword, setUserPassword] = useState<string>('');
+  const [error, setError] = useState<string>('');
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+
+  const isInvalid = userPassword === '' || userEmailInput === '';
 
   const clearEamil = () => {
     dispatch(resetEmail());
@@ -38,7 +41,7 @@ const SignUp = (props: Props) => {
         navigate('/', { replace: true });
         clearEamil();
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => setError(err.message));
   };
 
   const signIn = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -75,9 +78,11 @@ const SignUp = (props: Props) => {
           <input
             placeholder="Password"
             type="password"
+            autoComplete="off"
+            value={userPassword}
             onChange={(e) => setUserPassword(e.target.value)}
           />
-          <button type="submit" onClick={signIn}>
+          <button type="submit" onClick={signIn} disabled={isInvalid}>
             Sign In
           </button>
           <div className="signup__rmbMe">
