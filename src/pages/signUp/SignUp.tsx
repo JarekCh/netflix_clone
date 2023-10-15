@@ -15,7 +15,7 @@ import {
 
 type Props = {};
 
-// add input error to be more friendly
+// Input outline to change depned of field validation
 
 const SignUp = (props: Props) => {
   const userEmail = useAppSelector(selectUserEmail);
@@ -52,7 +52,8 @@ const SignUp = (props: Props) => {
         navigate('/', { replace: true });
         clearEamil();
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => setError(err.message));
+    console.log(error);
   };
 
   return (
@@ -68,6 +69,7 @@ const SignUp = (props: Props) => {
       <div className="signup">
         <form>
           <h1>Sing In</h1>
+          {error && <div className="signup__error">{error}</div>}
           <input
             placeholder="Email"
             type="email"
