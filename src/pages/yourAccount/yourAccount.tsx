@@ -1,4 +1,4 @@
-import './Profile.css';
+import './yourAccount.css';
 import netflixAvatar from '../../assets/netflixAvatar.png';
 import { selectUser } from '../../features/userSlice/userSlice';
 import { useAppSelector } from '../../app/hooks';
@@ -8,23 +8,23 @@ import { useNavigate } from 'react-router-dom';
 
 type Props = {};
 
-const Profile = (props: Props) => {
+const YourAccount = (props: Props) => {
   const user = useAppSelector(selectUser);
   const navigate = useNavigate();
 
   return (
-    <div className="profile">
-      <div className="profile__body">
+    <div className="yourAccount">
+      <div className="yourAccount__body">
         <h1>Edit Profile</h1>
-        <div className="profile__info">
+        <div className="yourAccount__info">
           <img src={netflixAvatar} alt="" />
-          <div className="profile__details">
+          <div className="yourAccount__details">
             <h2>{user.email}</h2>
-            <div className="profile__plans">
+            <div className="yourAccount__plans">
               <h3>Plans</h3>
               <ProfilePlans />
               <button
-                className="profile__signOut"
+                className="yourAccount__signOut"
                 onClick={() => {
                   auth.signOut();
                   navigate('/');
@@ -40,4 +40,4 @@ const Profile = (props: Props) => {
   );
 };
 
-export default Profile;
+export default YourAccount;

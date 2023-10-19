@@ -1,9 +1,9 @@
-.profile {
+.yourAccount {
   height: 100vh;
   color: white;
 }
 
-.profile__body {
+.yourAccount__body {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -12,31 +12,31 @@
   max-width: 800px;
 }
 
-.profile__body > h1 {
+.yourAccount__body > h1 {
   font-size: 60px;
   font-weight: 400;
   border-bottom: 1px solid #282c2d;
   margin-bottom: 20px;
 }
 
-.profile__info {
+.yourAccount__info {
   display: flex;
 }
 
-.profile__details {
+.yourAccount__details {
   color: white;
   margin-left: 25px;
   flex: 1;
 }
 
-.profile__details > h2 {
+.yourAccount__details > h2 {
   background-color: gray;
   padding: 15px 15px 15px 20px;
   font-size: 15px;
   border-radius: 0.2rem;
 }
 
-.profile__signOut {
+.yourAccount__signOut {
   padding: 10px 20px;
   font-size: 1rem;
   margin-top: 5%;
@@ -47,16 +47,16 @@
   border-radius: 0.2rem;
 }
 
-.profile__plans {
+.yourAccount__plans {
   margin: 20px;
 }
 
-.profile__plans > h3 {
+.yourAccount__plans > h3 {
   border-bottom: 1px solid #282c2d;
   padding-bottom: 10px;
 }
 
-.profile__info > img {
+.yourAccount__info > img {
   height: 100px;
   border-radius: 0.5rem;
 }

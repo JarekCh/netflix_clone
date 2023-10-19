@@ -5,7 +5,7 @@ import Login from './pages/Login/Login';
 import { useEffect } from 'react';
 import { auth } from './firebase';
 import { login, logout, selectUser } from './features/userSlice/userSlice';
-import Profile from './pages/Profile/Profile';
+import YourAccount from './pages/yourAccount/yourAccount';
 import SharedLayout from './pages/SharedLayout';
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import SignUp from './pages/signUp/SignUp';
@@ -18,6 +18,8 @@ import SignUp from './pages/signUp/SignUp';
 // fix any
 // add comments for html and functions
 //add code optimization memo/callback/lazyLoading
+// protected routes in router??
+// refactor all components path to index
 
 function App() {
   const user = useAppSelector(selectUser);
@@ -53,7 +55,7 @@ function App() {
         ) : (
           <Routes>
             <Route path="/" element={<SharedLayout />}>
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/YourAccount" element={<YourAccount />} />
               <Route path="/" element={<Home />} />
             </Route>
           </Routes>

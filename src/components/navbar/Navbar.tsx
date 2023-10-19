@@ -61,7 +61,7 @@ const Navbar = () => {
                   <span>▼</span>
                   {isMenuToggled && (
                     <ul>
-                      <li>Home</li>
+                      <li onClick={() => navigate('/')}>Home</li>
                       <li>Series</li>
                       <li>Films</li>
                       <li>New & Popular</li>
@@ -88,7 +88,7 @@ const Navbar = () => {
           </span>
           <div className="navbar__profileLink">
             <img
-              onClick={() => navigate('/profile')}
+              onClick={() => navigate('/YourAccount')}
               src={netflixAvatar}
               alt="personal avatar"
               className="navbar__avatar"
