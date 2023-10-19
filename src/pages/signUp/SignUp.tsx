@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import './SignUp.css';
 import { auth } from '../../firebase';
+import { updateProfile } from 'firebase/auth';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -40,6 +41,21 @@ const SignUp = (props: Props) => {
       .then(() => {
         navigate('/', { replace: true });
         clearEamil();
+      })
+      .then(() => {
+        if (auth.currentUser) {
+          const user = ['user1', 'user2', 'user3', 'user4', 'user5'];
+          updateProfile(auth.currentUser, {
+            displayName: user[Math.floor(Math.random() * user.length)],
+            photoURL: (Math.floor(Math.random() * 5) + 1).toString(),
+          })
+            .then(() => {
+              console.log('Profile updated!');
+            })
+            .catch((error: any) => {
+              console.log(error);
+            });
+        }
       })
       .catch((err) => setError(err.message));
   };
