@@ -1,0 +1,23 @@
+.profiles__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  max-width: 80%;
+}
+
+.profiles__title {
+  width: 100%;
+  color: #fff;
+  font-size: 48px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.profiles__userList {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+}
